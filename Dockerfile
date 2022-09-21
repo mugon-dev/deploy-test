@@ -4,14 +4,13 @@ FROM node:16-alpine
 WORKDIR /usr/src/app
 
 COPY package.json ./
-COPY yarn.lock ./
 
-RUN yarn
+RUN npm install
 
-COPY . .
+COPY ./ ./
 
-RUN yarn build
+RUN npm run build
 
 EXPOSE 3000
 
-CMD ["yarn","start"]
+CMD ["npm","run","start"]
