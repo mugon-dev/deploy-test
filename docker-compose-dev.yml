@@ -21,7 +21,6 @@ services:
     container_name: "next"
     restart: "on-failure"
     build:
-      context: ./next
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
