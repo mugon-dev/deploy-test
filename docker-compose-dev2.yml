@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  nginx:
+    image: nginx:latest
+    restart: unless-stopped
+    volumes:
+      - ./conf/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+  next:
+    container_name: "next"
+    restart: "on-failure"
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
